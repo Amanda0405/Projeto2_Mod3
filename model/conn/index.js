@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 function Conn(){
-    mongoose.connect("mongodb+srv://amandasilva:MDljKaJbPRFFzWwV@cluster0.mg4ww.mongodb.net/test",{
+    mongoose.connect("mongodb://localhost:27017/API", {
         useNewUrlParser: true,
         useUnifiedTopology: true,
     }).then(() => {
