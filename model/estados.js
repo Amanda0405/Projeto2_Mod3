@@ -9,6 +9,6 @@ const estadosModel = new mongoose.Schema({
 
 });
 
-const Estados = mongoose.model("Estados", estadosModel);
+const Estado = mongoose.model("Estados", estadosModel);
 
-module.exports = Estados;
+module.exports = Estado;

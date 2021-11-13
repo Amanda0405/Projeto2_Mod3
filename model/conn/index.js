@@ -1,14 +1,16 @@
 const mongoose = require("mongoose");
 
-function Conn(){
-    mongoose.connect("mongodb://localhost:27017/API", {
+
+//FUNÇÃO DE CONEXÃO
+async function Conn(){
+    await mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}/${process.env.DB_BASE}`, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
-    }).then(() => {
+    }).then (() => {
         console.log("MONGODB está conectado")
     }).catch((err) => {
         console.error(err);
-    })
-}
+    });
+};
 
 module.exports = Conn;
