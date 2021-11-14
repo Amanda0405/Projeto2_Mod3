@@ -1,22 +1,21 @@
 const express = require("express");
 const app = express();
+require('dotenv').config();
 
 app.use(express.json());
 
 const Conn = require("./model/conn/index");
 Conn();
 
-const port = 3000;
-
-const paisesRouter = require("./routers/paises");
+const paisesRouter = require("./routes/paises.routes");
 app.use("/paises", paisesRouter);
 
-const estadosRouter = require("./routers/estados");
+const estadosRouter = require("./routes/estados.routes");
 app.use("/estados", estadosRouter);
 
-const cidadesRouter = require("./routers/cidades");
+const cidadesRouter = require("./routes/cidades.routes");
 app.use("/cidades", cidadesRouter);
 
-app.listen(port, () => {
-    console.log(`Servidor rodando em: http://localhost:${port}`);
+app.listen(process.env.PORT, () => {
+    console.log(`Servidor rodando em: http://localhost:${process.env.PORT}`);
 });
